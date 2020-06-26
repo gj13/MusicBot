@@ -954,6 +954,7 @@ class MusicBot(discord.Client):
 
         if self.init_ok:
             log.debug("Received additional READY event, may have failed to resume")
+            await self.restart() #added restart
             return
 
         await self._on_ready_sanity_checks()
@@ -2075,9 +2076,11 @@ class MusicBot(discord.Client):
                 else:
                     print("Something odd is happening.  "
                           "You might want to restart the bot if it doesn't start working.")
+                    await self.restart() #added restart
             else:
                 print("Something strange is happening.  "
                       "You might want to restart the bot if it doesn't start working.")
+                await self.restart() #added restart
         
         current_entry = player.current_entry
 
