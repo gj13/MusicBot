@@ -1958,11 +1958,11 @@ class MusicBot(discord.Client):
                 await self.cmd_play(message, player, channel, author, permissions, [],
                                     info['entries'][int(choice.content) - 1]['webpage_url'])
                 if self.config.embeds:
-                    return Response(self.str.get('cmd-search-accept-list-embed', "[{0}]({1}) added to que").format(
+                    return Response(self.str.get('cmd-search-accept-list-embed', "[{0}]({1}) added to queue.").format(
                         info['entries'][int(choice.content) - 1]['title'],
                         info['entries'][int(choice.content) - 1]['webpage_url']), delete_after=30)
                 else:
-                    return Response(self.str.get('cmd-search-accept-list-noembed', "{0} added to que").format(
+                    return Response(self.str.get('cmd-search-accept-list-noembed', "{0} added to queue.").format(
                         info['entries'][int(choice.content) - 1]['title']), delete_after=30)
         else:
             # Original code
