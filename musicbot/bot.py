@@ -1815,7 +1815,7 @@ class MusicBot(discord.Client):
                 )
 
             try:
-                entry, position = await player.playlist.add_entry(song_url, channel=channel, author=author)
+                entry, position = await player.playlist.add_entry(song_url, channel=channel, author=author, head=True)
                 if self.config.embeds:
                     content = self._gen_embed()
                     content.add_field(name='Play now', value='{}'.format(self.str.get('cmd-playnow-succesful', "Enqueued **%s** to be played. Position in queue: Up next!") % entry.title), inline=True)
