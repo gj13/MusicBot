@@ -1886,11 +1886,11 @@ class MusicBot(discord.Client):
 
             if self.config.embeds:
                 content = self._gen_embed()
-                content.title = 'np'.format(action_text)
+                content.title = 'Now Playing'.format(action_text)
                 content.add_field(name='** **', value='{}'.format(np_text), inline=True)
 
 
-            self.server_specific_data[guild]['last_np_msg'] = await self.safe_send_message(channel, content if self.config.embeds else np_text, expire_in=30)
+            self.server_specific_data[guild]['last_np_msg'] = await self.safe_send_message(channel, content if self.config.embeds else np_text)
             await self._manual_delete_check(message)
         else:
             return Response(
